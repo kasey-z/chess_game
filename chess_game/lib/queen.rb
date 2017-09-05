@@ -1,4 +1,4 @@
-require './chesspiece'
+require_relative 'chesspiece.rb'
 class Queen < ChessPiece
 end
 

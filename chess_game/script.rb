@@ -18,7 +18,7 @@ while play_again == 'y'
   puts "and capture the opponent's pieces, while supporting each other."
   puts "Do you want to start a game from a saved file? If yes, press Y:"
   react = gets.chomp.downcase
-  if react == 'y'
+  if react == 'y' && File.file?('save_data.yml')
     file = YAML.load_file('save_data.yml')
     current_player = file[:current_player]
     other_player = file[:@other_player]
@@ -26,7 +26,7 @@ while play_again == 'y'
     game.from_yaml
   else
     puts "Player 1, what's your name?"
-    name1 = gets.chomp
+    name1 = gets.chomp.capitalize
     puts "which color do you want play? white or black?"
     color1 = gets.chomp.downcase
 
@@ -36,10 +36,10 @@ while play_again == 'y'
     player1 = Player.new(name1, color1)
 
     puts "Player 2, what's your name?"
-    name2 = gets.chomp
+    name2 = gets.chomp.capitalize
     color2 = (['white', 'black'] - [color1])[0]
     player2 = Player.new(name2, color2)
-    game = Game.new([player1, player2])
+    game = Game.new(player1, player2)
   end
 
   game.start_game

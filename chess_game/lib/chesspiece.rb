@@ -1,4 +1,3 @@
-require './chesspiece'
 class ChessPiece
   attr_reader :color
   attr_accessor :moved

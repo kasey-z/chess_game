@@ -1,16 +1,16 @@
-require './chesspiece'
+require_relative 'chesspiece.rb'
 class King < ChessPiece
 
 end
 
 class WhiteKing < King
-  def print
+  def symbol
     "\u2654"
   end
 end
 
 class BlackKing < King
-  def print
+  def symbol
     "\u265A"
   end
 end

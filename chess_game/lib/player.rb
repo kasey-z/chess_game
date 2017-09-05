@@ -1,4 +1,3 @@
-require './chesspiece'
 class Player
   attr_accessor :name, :color
 
